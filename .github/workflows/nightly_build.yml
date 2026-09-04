@@ -220,6 +220,7 @@ jobs:
           --file docker/Dockerfile .
 
       - name: Push lmcache/vllm-openai container image to DockerHub
+        if: vars.DOCKERHUB_USERNAME != ''
         run: |
           docker push lmcache/vllm-openai:latest-nightly
           docker push lmcache/vllm-openai:nightly-${{ env.NOW }}
@@ -241,6 +242,7 @@ jobs:
           test -f payload-out/lmcache/__init__.py
 
       - name: Push lmcache/lmcache-payload nightly image to DockerHub
+        if: vars.DOCKERHUB_USERNAME != ''
         run: |
           docker push lmcache/lmcache-payload:latest-nightly
           docker push lmcache/lmcache-payload:nightly-${{ env.NOW }}
@@ -258,6 +260,7 @@ jobs:
           --file docker/Dockerfile.standalone .
 
       - name: Push lmcache/standalone container image to DockerHub
+        if: vars.DOCKERHUB_USERNAME != ''
         run: |
           docker push lmcache/standalone:nightly
           docker push lmcache/standalone:nightly-${{ env.NOW }}
@@ -274,6 +277,7 @@ jobs:
           --file docker/Dockerfile .
 
       - name: Push lmcache/vllm-openai cu12.9 nightly image to DockerHub
+        if: vars.DOCKERHUB_USERNAME != ''
         run: |
           docker push lmcache/vllm-openai:latest-nightly-cu129
           docker push lmcache/vllm-openai:nightly-${{ env.NOW }}-cu129
@@ -295,6 +299,7 @@ jobs:
           test -f payload-out-cu129/lmcache/__init__.py
 
       - name: Push lmcache/lmcache-payload cu12.9 nightly image to DockerHub
+        if: vars.DOCKERHUB_USERNAME != ''
         run: |
           docker push lmcache/lmcache-payload:latest-nightly-cu129
           docker push lmcache/lmcache-payload:nightly-${{ env.NOW }}-cu129
@@ -311,6 +316,7 @@ jobs:
           --file docker/Dockerfile.standalone .
 
       - name: Push lmcache/standalone cu12.9 nightly image to DockerHub
+        if: vars.DOCKERHUB_USERNAME != ''
         run: |
           docker push lmcache/standalone:nightly-cu129
           docker push lmcache/standalone:nightly-${{ env.NOW }}-cu129

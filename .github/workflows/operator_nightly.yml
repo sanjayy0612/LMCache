@@ -19,6 +19,7 @@ defaults:
 jobs:
   nightly:
     name: Build, push, and release nightly
+    if: vars.DOCKERHUB_USERNAME != ''
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
